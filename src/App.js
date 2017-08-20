@@ -7,7 +7,7 @@ class App extends Component {
       <section className="App-section hero is-fullheight">
         <div className="hero-body">
           <div className="container has-text-centered">
-            <h1 className="title is-1 has-text-white">inverloch.house</h1>
+            <h1 className="App-section__title title is-1 has-text-white">inverloch.house</h1>
             <h2 className="subtitle has-text-white">coming soon</h2>
           </div>
         </div>
