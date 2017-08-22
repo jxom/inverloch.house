@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, browserHistory } from 'react-router';
+import { Router, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { Provider } from 'react-redux';
 
@@ -16,8 +16,8 @@ import './index.css';
 
 registerServiceWorker();
 
-const store = (window.devToolsExtension ? window.devToolsExtension()(createStore) : createStore)(browserHistory);
-const history = syncHistoryWithStore(browserHistory, store);
+const store = (window.devToolsExtension ? window.devToolsExtension()(createStore) : createStore)(hashHistory);
+const history = syncHistoryWithStore(hashHistory, store);
 
 // Define the app routes
 const Routes = () => (

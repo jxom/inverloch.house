@@ -82,7 +82,7 @@ class AuthContainer extends Component {
   }
 
   render = () => {
-    const { errorMessage, showMFAForm } = this.state;
+    const { mobile, errorMessage, showMFAForm } = this.state;
     return (
       <section className="Auth__section hero is-fullheight">
         <div className="hero-body">
@@ -101,6 +101,7 @@ class AuthContainer extends Component {
                 {
                   showMFAForm ?
                     <MFAForm
+                      mobile={mobile}
                       onSubmit={this.handleSubmitMFAForm}
                       onClickGoBack={this.handleGoToMobileNumberForm}
                       onClickResendCode={this.handleResendCode}
