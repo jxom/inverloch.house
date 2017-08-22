@@ -28,10 +28,13 @@ class MainWrapper extends Component {
   }
 
   render = () => {
-    const { children } = this.props;
+    const { auth, children } = this.props;
     return (
       <div>
-        <Header onClickLogout={this.handleLogout}/>
+        <Header
+          auth={auth}
+          onClickLogout={this.handleLogout}
+        />
         {children || <CalendarContainer/>}
       </div>
     );
@@ -39,10 +42,12 @@ class MainWrapper extends Component {
 }
 
 MainWrapper.propTypes = {
+  auth: PropTypes.object,
   children: PropTypes.node
 };
 
 MainWrapper.defaultProps = {
+  auth: {},
   children: null
 };
 

@@ -6,9 +6,10 @@ const Navbar = styled.nav`
   box-shadow: 0 0 3px 1px rgba(10, 10, 10, 0.1);
 `;
 
-export const Header = ({ onClickLogout }) => (
+export const Header = ({ auth, onClickLogout }) => (
   <Navbar className="navbar">
     <div className="navbar-brand">
+      {console.log(auth)}
       <a className="navbar-item">
         <h5 className="is-size-5">
           <strong className="has-text-info">inverloch.house</strong>
@@ -27,7 +28,7 @@ export const Header = ({ onClickLogout }) => (
         </a>
       </div> */}
       <div className="navbar-end">
-        <span className="navbar-item">+61468605450</span>
+        <span className="navbar-item">{auth.phoneNumber}</span>
         <a className="navbar-item">
           <i className="fa fa-user"/>&nbsp;
           Profile
@@ -42,10 +43,12 @@ export const Header = ({ onClickLogout }) => (
 );
 
 Header.propTypes = {
+  auth: PropTypes.object,
   onClickLogout: PropTypes.func
 };
 
 Header.defaultProps = {
+  auth: {},
   onClickLogout: () => {}
 };
 
