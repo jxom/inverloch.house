@@ -92,7 +92,7 @@ class AuthContainer extends Component {
             <span id="recaptcha"/>
             {
               errorMessage &&
-              <Message className="margin-bottom-20" title="Oh no!" type="danger">
+              <Message className="margin-bottom-1rem" title="Oh no!" type="danger">
                 {errorMessage}
               </Message>
             }

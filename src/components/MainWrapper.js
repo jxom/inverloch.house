@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
 import { push } from 'react-router-redux';
+
+import Header from './_Layout/Header';
+import CalendarContainer from './Calendar/CalendarContainer';
 
 class MainWrapper extends Component {
   componentDidMount = () => {
@@ -24,13 +28,23 @@ class MainWrapper extends Component {
   }
 
   render = () => {
+    const { children } = this.props;
     return (
       <div>
-        Welcome!&nbsp;<a onClick={this.handleLogout}>Logout</a>
+        <Header onClickLogout={this.handleLogout}/>
+        {children || <CalendarContainer/>}
       </div>
     );
   }
 }
+
+MainWrapper.propTypes = {
+  children: PropTypes.node
+};
+
+MainWrapper.defaultProps = {
+  children: null
+};
 
 export default connect(state => ({
   auth: state.firebase.auth

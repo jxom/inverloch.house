@@ -36,7 +36,7 @@ export class Message extends Component {
                 <a className={`button is-${type} is-inverted is-outlined`} onClick={this.handleClose}>Close</a>
               }
             </div>
-            <div className="message-body is-light-weight-text">
+            <div className="message-body is-light-weight-text has-text-left">
               {children}
             </div>
           </article>
