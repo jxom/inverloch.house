@@ -1,34 +1,35 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { firebaseConnect } from 'react-redux-firebase';
-import styled from 'styled-components';
+import { firebaseConnect } from '@jmoxey/react-redux-firebase';
+import { Link } from 'react-router';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 import Message from '../_Common/Message';
-
-const Container = styled.div`
-  margin-top: 1rem !important;
-`;
+import MainPageWrapper from '../_Layout/MainPageWrapper';
 
 BigCalendar.momentLocalizer(moment);
 
 class Calendar extends Component {
   render = () => {
-    const { auth } = this.props;
+    const { profile } = this.props;
     return (
-      <Container className="container">
-        <div className="has-text-centered">
+      <MainPageWrapper title="Calendar">
+        <div className="has-text-centered" style={{ marginTop: '1rem' }}>
           {
-            !auth.displayName &&
-            <Message className="margin-bottom-1rem" type="info" title="Note">
-              In order to make a booking, you need to enter your name on your profile.<br/>
-              <a>Click here to set your name.</a>
-            </Message>
+            profile.displayName ?
+              <div style={{ marginBottom: '2rem' }}>
+                <Link to="/create-booking" className="button is-primary">Make a booking</Link>
+              </div> :
+              <div style={{ marginBottom: '2rem' }}>
+                <Message type="info" title="Note">
+                  In order to make a booking, you need to enter your name on your profile.<br/>
+                  <Link to="/profile">Click here to set your name.</Link>
+                </Message>
+              </div>
           }
-          <h1 className="title is-size-1">Calendar</h1>
           <BigCalendar
             events={[]}
             startAccessor="startDate"
@@ -36,19 +37,20 @@ class Calendar extends Component {
             style={{ height: '700px' }}
           />
         </div>
-      </Container>
+      </MainPageWrapper>
     );
   }
 }
 
 Calendar.propTypes = {
-  auth: PropTypes.object
+  profile: PropTypes.object,
+  dispatch: PropTypes.func.isRequired
 };
 
 Calendar.defaultProps = {
-  auth: {}
+  profile: {}
 };
 
 export default connect(state => ({
-  auth: state.firebase.auth
+  profile: state.firebase.profile
 }))(firebaseConnect()(Calendar));

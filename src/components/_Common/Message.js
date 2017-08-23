@@ -22,13 +22,13 @@ export class Message extends Component {
   }
 
   render = () => {
-    const { className, title, children, type, showCloseButton } = this.props;
+    const { className, title, children, type, showCloseButton, show: s, ...props } = this.props;
     const { show } = this.state;
     return (
       <div>
         {
           show &&
-          <article className={classNames('message', type ? `is-${type}` : '', className)} style={{ display: 'inline-block' }}>
+          <article className={classNames('message', type ? `is-${type}` : '', className)} style={{ display: 'inline-block' }} {...props}>
             <div className="message-header">
               <p className="margin-bottom-0" style={{ fontWeight: 'bold' }}>{title}</p>
               {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { firebaseConnect } from 'react-redux-firebase';
+import { firebaseConnect } from '@jmoxey/react-redux-firebase';
 import { reduxForm } from 'redux-form';
 import { push } from 'react-router-redux';
 import styled from 'styled-components';
@@ -71,12 +71,15 @@ class AuthContainer extends Component {
   }
 
   handleSubmitMFAForm = async ({ code }) => {
-    const { dispatch } = this.props;
+    const { dispatch, firebase } = this.props;
     const { confirmationResult } = this.state;
     try {
-      await confirmationResult.confirm(code);
+      // await confirmationResult.confirm(code);
+      const credential = firebase.auth.PhoneAuthProvider.credential(confirmationResult.verificationId, code);
+      await firebase.login({ credential });
       dispatch(push('/'));
     } catch (err) {
+      console.error(err);
       this.setState({ errorMessage: 'Sorry, we could not log you in. Are you sure you entered the correct code?' });
     }
   }

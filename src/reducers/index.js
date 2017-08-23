@@ -1,7 +1,7 @@
 import { routerReducer as routing } from 'react-router-redux';
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
-import { firebaseStateReducer } from 'react-redux-firebase';
+import { firebaseStateReducer } from '@jmoxey/react-redux-firebase';
 import _set from 'lodash/set';
 import _pick from 'lodash/pick';
 

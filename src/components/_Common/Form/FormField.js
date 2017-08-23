@@ -6,6 +6,7 @@ class FormField extends Component {
   render() {
     const {
       isCheckbox,
+      isDisabled,
       isSearchSelect,
       isSelect,
       isRequired,
@@ -29,6 +30,7 @@ class FormField extends Component {
           {
             !isSearchSelect && !isSelect && !isCheckbox &&
             <input
+              disabled={isDisabled}
               className={classNames('input', isMedium ? 'is-medium' : '', isErrorAndTouched ? 'is-danger' : '')}
               {...input}
               type={type}
@@ -78,6 +80,7 @@ class FormField extends Component {
 
 FormField.propTypes = {
   isCheckbox: PropTypes.bool,
+  isDisabled: PropTypes.bool,
   isSearchSelect: PropTypes.bool,
   className: PropTypes.string,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
@@ -96,6 +99,7 @@ FormField.propTypes = {
 
 FormField.defaultProps = {
   isCheckbox: false,
+  isDisabled: false,
   isSearchSelect: false,
   selectProps: {},
   className: null,
