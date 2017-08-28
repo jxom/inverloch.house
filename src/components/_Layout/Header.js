@@ -8,11 +8,11 @@ const Navbar = styled.nav`
 `;
 
 export const Header = ({ profile, onClickLogout }) => (
-  <Navbar className="navbar">
+  <Navbar className="navbar is-info">
     <div className="navbar-brand">
       <Link className="navbar-item" to="/">
         <h5 className="is-size-5">
-          <strong className="has-text-info">inverloch.house</strong>
+          <strong className="has-text-white">inverloch.house</strong>
         </h5>
       </Link>
       <div className="navbar-burger">
@@ -28,12 +28,12 @@ export const Header = ({ profile, onClickLogout }) => (
         </a>
       </div> */}
       <div className="navbar-end">
-        <span className="navbar-item">{profile.displayName || profile.phoneNumber}</span>
-        <Link className="navbar-item" to="/profile">
+        <span className="navbar-item has-text-white">{profile.displayName || profile.phoneNumber}</span>
+        <Link className="navbar-item has-text-white" to="/profile">
           <i className="fa fa-user"/>&nbsp;
           Profile
         </Link>
-        <a className="navbar-item" onClick={onClickLogout}>
+        <a className="navbar-item has-text-white" onClick={onClickLogout}>
           <i className="fa fa-sign-out"/>&nbsp;
           Logout
         </a>

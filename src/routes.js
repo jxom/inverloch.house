@@ -1,6 +1,7 @@
 import App from './components/App';
 import MainWrapper from './components/MainWrapper';
 import AuthContainer from './components/Auth/AuthContainer';
+import BookingContainer from './components/Booking/BookingContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 
 export function errorLoading(err) {
@@ -32,6 +33,12 @@ export default ({
         path: 'profile',
         component: MainWrapper,
         indexRoute: { component: ProfileContainer }
+      },
+      {
+        name: 'Make a booking',
+        path: 'create-booking',
+        component: MainWrapper,
+        indexRoute: { component: BookingContainer }
       }
     ]
   }]

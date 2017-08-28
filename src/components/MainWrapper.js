@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { firebaseConnect } from '@jmoxey/react-redux-firebase';
+import { firebaseConnect } from 'react-redux-firebase';
 import { push } from 'react-router-redux';
 
 import Header from './_Layout/Header';

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { firebaseConnect } from '@jmoxey/react-redux-firebase';
+import { firebaseConnect } from 'react-redux-firebase';
 import { Link } from 'react-router';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import 'react-dates/lib/css/_datepicker.css';
 
 import Message from '../_Common/Message';
 import MainPageWrapper from '../_Layout/MainPageWrapper';
@@ -21,7 +22,7 @@ class Calendar extends Component {
           {
             profile.displayName ?
               <div style={{ marginBottom: '2rem' }}>
-                <Link to="/create-booking" className="button is-primary">Make a booking</Link>
+                <Link to="/create-booking" className="button is-info">Make a booking</Link>
               </div> :
               <div style={{ marginBottom: '2rem' }}>
                 <Message type="info" title="Note">

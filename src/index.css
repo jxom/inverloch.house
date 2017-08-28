@@ -13,3 +13,19 @@
 .section {
   padding: 1.5rem !important;
 }
+
+.navbar.is-info {
+  background-color: #3273dc !important
+}
+
+.navbar.is-info a.navbar-item:hover, 
+.navbar.is-info a.navbar-item.is-active, 
+.navbar.is-info .navbar-link:hover, 
+.navbar.is-info .navbar-link.is-active {
+  background-color: #285db1 !important;
+  color: white !important;
+}
+
+.DateRangePicker__picker {
+  z-index: 9999;
+}

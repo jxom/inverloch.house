@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
-import { firebaseConnect } from '@jmoxey/react-redux-firebase';
+import { firebaseConnect } from 'react-redux-firebase';
 import _get from 'lodash/get';
 
 import MainPageWrapper from '../_Layout/MainPageWrapper';

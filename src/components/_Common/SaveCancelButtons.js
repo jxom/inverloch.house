@@ -5,7 +5,7 @@ import classNames from 'classnames';
 export const SaveCancelButtons = ({ isLoading, onClickCancel }) => (
   <div className="field is-grouped" style={{ marginTop: '1rem' }}>
     <p className="control">
-      <button className={classNames('button is-primary', isLoading ? 'is-loading' : '')} type="submit" disabled={isLoading}>
+      <button className={classNames('button is-info', isLoading ? 'is-loading' : '')} type="submit" disabled={isLoading}>
         Save changes
       </button>
     </p>

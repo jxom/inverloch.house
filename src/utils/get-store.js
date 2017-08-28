@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
-import { reactReduxFirebase } from '@jmoxey/react-redux-firebase';
+import { reactReduxFirebase } from 'react-redux-firebase';
 import * as firebase from 'firebase';
 import persistState from 'redux-localstorage';
 import thunk from 'redux-thunk';
