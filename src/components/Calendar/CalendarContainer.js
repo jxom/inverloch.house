@@ -6,7 +6,6 @@ import { Link } from 'react-router';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import 'react-dates/lib/css/_datepicker.css';
 
 import Message from '../_Common/Message';
 import MainPageWrapper from '../_Layout/MainPageWrapper';

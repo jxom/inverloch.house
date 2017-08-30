@@ -1,5 +1,6 @@
-*, input {
-  font-family: 'Nunito', BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+*, input, textarea {
+  font-family: 'Nunito', BlinkMacSystemFont, -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
 
 .margin-bottom-1rem {
@@ -10,17 +11,21 @@
   margin-bottom: 0px !important;
 }
 
+.field:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+
 .section {
   padding: 1.5rem !important;
 }
 
 .navbar.is-info {
-  background-color: #3273dc !important
+  background-color: #3273dc !important;
 }
 
-.navbar.is-info a.navbar-item:hover, 
-.navbar.is-info a.navbar-item.is-active, 
-.navbar.is-info .navbar-link:hover, 
+.navbar.is-info a.navbar-item:hover,
+.navbar.is-info a.navbar-item.is-active,
+.navbar.is-info .navbar-link:hover,
 .navbar.is-info .navbar-link.is-active {
   background-color: #285db1 !important;
   color: white !important;
@@ -28,4 +33,40 @@
 
 .DateRangePicker__picker {
   z-index: 9999;
+}
+
+.DateInput__display-text {
+  font-weight: 400 !important;
+  color: #363636 !important;
+  font-size: 1.25rem;
+}
+
+.DateRangePickerInput,
+.DateInput {
+  border-radius: 5px !important;
+}
+
+.DateRangePickerInput:hover {
+  border: 1px solid #b5b5b5;
+}
+
+.DateInput__input {
+  cursor: pointer;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #dedede;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #dedede;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #dedede;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #dedede;
 }

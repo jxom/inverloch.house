@@ -6,9 +6,9 @@ import { firebaseConnect } from 'react-redux-firebase';
 import _get from 'lodash/get';
 
 import MainPageWrapper from '../_Layout/MainPageWrapper';
-import DateRangePickerWrapper from '../_Common/DateRangePickerWrapper';
 import Message from '../_Common/Message';
 import SaveCancelButtons from '../_Common/SaveCancelButtons';
+import BookingFields from './BookingFields';
 
 class BookingContainer extends Component {
   handleSubmit = () => {
@@ -21,8 +21,9 @@ class BookingContainer extends Component {
       <MainPageWrapper title="Make a booking">
         <div className="columns">
           <div className="column is-8 is-offset-2">
-            <form noValidate onSubmit={handleSubmit(this.handleSubmit)} style={{ marginTop: '1rem' }}>
-              <DateRangePickerWrapper/>
+            <form noValidate onSubmit={handleSubmit(this.handleSubmit)} style={{ marginTop: '2rem' }}>
+              <BookingFields/>
+              <SaveCancelButtons saveText="Book"/>
             </form>
           </div>
         </div>

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import { DateRangePicker } from 'react-dates';
 import omit from 'lodash/omit';
+import 'react-dates/lib/css/_datepicker.css';
 
 import isInclusivelyAfterDay from '../../utils/is-inclusively-after-day';
 
@@ -118,8 +119,6 @@ DateRangePickerWrapper.propTypes = {
   autoFocusEndDate: PropTypes.bool,
   initialStartDate: PropTypes.string,
   initialEndDate: PropTypes.string,
-  onDatesChange: PropTypes.func.isRequired,
-  onFocusChange: PropTypes.func.isRequired,
 
   // input related props
   startDateId: PropTypes.string,
@@ -137,8 +136,8 @@ DateRangePickerWrapper.propTypes = {
 
   // calendar presentation and interaction related props
   renderMonth: PropTypes.func,
-  orientation: PropTypes.object,
-  anchorDirection: PropTypes.object,
+  orientation: PropTypes.string,
+  anchorDirection: PropTypes.string,
   horizontalMargin: PropTypes.number,
   withPortal: PropTypes.bool,
   withFullScreenPortal: PropTypes.bool,
