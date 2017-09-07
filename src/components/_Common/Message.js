@@ -48,9 +48,9 @@ export class Message extends Component {
 
 Message.propTypes = {
   className: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-  type: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  children: PropTypes.node,
+  type: PropTypes.string,
   show: PropTypes.bool,
   showCloseButton: PropTypes.bool
 };
@@ -58,7 +58,10 @@ Message.propTypes = {
 Message.defaultProps = {
   className: '',
   show: true,
-  showCloseButton: true
+  showCloseButton: true,
+  title: null,
+  children: <div/>,
+  type: null
 };
 
 export default Message;

@@ -10,7 +10,7 @@ import Message from '../_Common/Message';
 
 import MobileNumberLoginForm from './MobileNumberLoginForm';
 import MFAForm from './MFAForm';
-import './index.css';
+import './styles.css';
 
 const AppSectionTitle = styled.h1`
   @media (max-width: 768px) {

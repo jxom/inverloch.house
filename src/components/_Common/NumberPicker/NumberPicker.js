@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -20,27 +19,35 @@ const PickerValue = styled.span`
 export class NumberPicker extends Component {
   state = { value: 0 };
 
-  handleClickSubtract = () => {
+  constructor(props) {
+    super(props);
+    this.state = { value: props.defaultValue };
+  }
+
+  handleClickSubtract = async () => {
+    const { minValue, onChange } = this.props;
     const { value } = this.state;
-    if (value > 0) {
-      this.setState({ value: value - 1 });
+    if (value > minValue) {
+      await this.setState({ value: value - 1 });
+      onChange(this.state.value);
     }
   };
 
-  handleClickAdd = () => {
-    const { maxValue } = this.props;
+  handleClickAdd = async () => {
+    const { maxValue, onChange } = this.props;
     const { value } = this.state;
     if (value < maxValue) {
-      this.setState({ value: value + 1 });
+      await this.setState({ value: value + 1 });
+      onChange(this.state.value);
     }
   };
 
   render = () => {
-    const { maxValue } = this.props;
+    const { minValue, maxValue } = this.props;
     const { value } = this.state;
     return (
       <Container>
-        <CircleButton className="button is-primary is-outlined" disabled={value <= 0} onClick={this.handleClickSubtract}>
+        <CircleButton className="button is-primary is-outlined" disabled={value <= minValue} onClick={this.handleClickSubtract}>
           <svg viewBox="0 0 24 24" role="img" aria-label="subtract" focusable="false" style={{ display: 'block', fill: 'currentcolor', height: '1em', width: '1em' }}>
             <rect width="26" height="4" x="0" y="11" rx="1"/>
           </svg>
@@ -60,11 +67,15 @@ export class NumberPicker extends Component {
 }
 
 NumberPicker.propTypes = {
-  maxValue: PropTypes.number
+  maxValue: PropTypes.number,
+  minValue: PropTypes.number,
+  defaultValue: PropTypes.number
 };
 
 NumberPicker.defaultProps = {
-  maxValue: 20
+  maxValue: 20,
+  minValue: 0,
+  defaultValue: 0
 };
 
 export default NumberPicker;

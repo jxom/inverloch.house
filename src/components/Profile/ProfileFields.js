@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
 
 import FormField from '../_Common/Form/FormField';

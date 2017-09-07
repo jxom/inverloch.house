@@ -12,7 +12,7 @@ import routes from './routes';
 
 import 'bulma/css/bulma.css';
 import 'font-awesome/css/font-awesome.css';
-import './index.css';
+import './styles.css';
 
 registerServiceWorker();
 

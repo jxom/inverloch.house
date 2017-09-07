@@ -49,7 +49,9 @@ class MainWrapper extends Component {
 
 MainWrapper.propTypes = {
   profile: PropTypes.object,
-  children: PropTypes.node
+  children: PropTypes.node,
+  dispatch: PropTypes.func.isRequired,
+  firebase: PropTypes.object.isRequired
 };
 
 MainWrapper.defaultProps = {

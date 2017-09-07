@@ -21,7 +21,6 @@ class ProfileContainer extends Component {
   }
 
   handleSubmit = async data => {
-    const { firebase } = this.props;
     this.setState({ hasUpdated: false });
     try {
       await this.props.firebase.updateProfile({

@@ -57,7 +57,10 @@ const defaultProps = {
 
   // internationalization
   displayFormat: () => moment.localeData().longDateFormat('L'),
-  monthFormat: 'MMMM YYYY'
+  monthFormat: 'MMMM YYYY',
+
+  // Other
+  onDatesChange: () => {}
 };
 
 class DateRangePickerWrapper extends React.Component {
@@ -80,6 +83,7 @@ class DateRangePickerWrapper extends React.Component {
 
   handleDatesChange = ({ startDate, endDate }) => {
     this.setState({ startDate, endDate });
+    this.props.onDatesChange({ startDate, endDate });
   }
 
   handleFocusChange = focusedInput => {
@@ -163,7 +167,10 @@ DateRangePickerWrapper.propTypes = {
 
   // internationalization props
   displayFormat: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  monthFormat: PropTypes.string
+  monthFormat: PropTypes.string,
+
+  // Other
+  onDatesChange: PropTypes.func
 };
 DateRangePickerWrapper.defaultProps = defaultProps;
 

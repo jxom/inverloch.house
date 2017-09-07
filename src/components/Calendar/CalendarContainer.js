@@ -43,8 +43,7 @@ class Calendar extends Component {
 }
 
 Calendar.propTypes = {
-  profile: PropTypes.object,
-  dispatch: PropTypes.func.isRequired
+  profile: PropTypes.object
 };
 
 Calendar.defaultProps = {

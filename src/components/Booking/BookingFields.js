@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import DateRangePickerWrapper from '../_Common/DateRangePickerWrapper';
 import FormField from '../_Common/Form/FormField';
 import NumberPicker from '../_Common/NumberPicker/NumberPicker';
+import { isRequired } from '../../utils/validate-form';
 
 const NumberPickerWrapper = styled.div`
   display: flex;
@@ -17,21 +18,38 @@ const NumberPickerLabel = styled.div`
   font-weight: 400;
 `;
 
-class ProfileFields extends Component {
+class BookingFields extends Component {
   render = () => {
+    const {
+      numberOfAdultsDefaultValue,
+      numberOfChildrenDefaultValue,
+      onNumberOfAdultsChange,
+      onNumberOfChildrenChange,
+      onDatesChange
+    } = this.props;
     return (
       <div>
-        <Field component={FormField} label="Select your dates">
-          <DateRangePickerWrapper/>
+        <Field name="dateRange" component={FormField} label="Select your dates">
+          <DateRangePickerWrapper
+            numberOfMonths={document.body.clientWidth < 768 ? 1 : 2}
+            onDatesChange={onDatesChange}
+          />
         </Field>
-        <Field component={FormField} label="How many guests?">
+        <Field name="guests" component={FormField} label="How many guests?">
           <NumberPickerWrapper style={{ marginTop: '0.75rem' }}>
             <NumberPickerLabel className="is-size-5">Adults</NumberPickerLabel>
-            <NumberPicker/>
+            <NumberPicker
+              defaultValue={numberOfAdultsDefaultValue}
+              minValue={1}
+              onChange={onNumberOfAdultsChange}
+            />
           </NumberPickerWrapper>
           <NumberPickerWrapper style={{ marginTop: '1rem' }}>
             <NumberPickerLabel className="is-size-5">Children</NumberPickerLabel>
-            <NumberPicker/>
+            <NumberPicker
+              defaultValue={numberOfChildrenDefaultValue}
+              onChange={onNumberOfChildrenChange}
+            />
           </NumberPickerWrapper>
         </Field>
         <Field
@@ -41,16 +59,27 @@ class ProfileFields extends Component {
           name="notes"
           label="Any notes for the owner"
           placeholder="Also going to bring some Glen 20 air fresheners for the toilet."
+          validate={[isRequired]}
         />
       </div>
     );
   }
 }
 
-ProfileFields.propTypes = {
+BookingFields.propTypes = {
+  numberOfAdultsDefaultValue: PropTypes.number,
+  numberOfChildrenDefaultValue: PropTypes.number,
+  onNumberOfAdultsChange: PropTypes.func,
+  onNumberOfChildrenChange: PropTypes.func,
+  onDatesChange: PropTypes.func
 };
 
-ProfileFields.defaultProps = {
+BookingFields.defaultProps = {
+  numberOfAdultsDefaultValue: 1,
+  numberOfChildrenDefaultValue: 0,
+  onNumberOfAdultsChange: () => {},
+  onNumberOfChildrenChange: () => {},
+  onDatesChange: () => {}
 };
 
-export default ProfileFields;
+export default BookingFields;

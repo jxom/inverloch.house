@@ -25,7 +25,7 @@ class FormField extends Component {
     const isErrorAndTouched = meta.error && meta.touched;
 
     return (
-      <div className={classNames(className, 'field')}>
+      <div className={classNames(className, 'field', isErrorAndTouched ? 'is-danger' : '')}>
         { label && <label className={classNames('label', labelClass)}>{label} { isRequired && <span className="has-text-danger">*</span> }</label> }
         {
           (!isSearchSelect && !isSelect && !isCheckbox && !isTextArea && children) ?

@@ -7,6 +7,8 @@ import _pick from 'lodash/pick';
 
 import { CLEAR_ALL_STATE, CLEAR_VALUE, SET_VALUE } from '../actions';
 
+import uiReducer from './ui/index';
+
 // Keys to not clear upon the CLEAR_ALL_STATE action
 const PERSIST_KEYS = ['custom', '_ui', 'location', 'form', 'routing'];
 
@@ -28,6 +30,7 @@ export const failure = (state, action, isFetchingKey = 'isFetching', hasFetchedK
   });
 
 const appReducer = combineReducers({
+  _ui: uiReducer,
   firebase: firebaseStateReducer,
   form: formReducer,
   routing
